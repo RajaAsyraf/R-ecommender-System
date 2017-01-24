@@ -1,0 +1,111 @@
+{
+    "debugBreakpointsState" : {
+        "breakpoints" : [
+            {
+                "editor_line_number" : 392,
+                "editor_state" : 1,
+                "function_name" : "toplevel",
+                "function_steps" : "",
+                "id" : 0,
+                "is_package_breakpoint" : false,
+                "is_pending_debug_completion" : false,
+                "line_number" : 392,
+                "needs_updated_steps" : false,
+                "package_name" : "",
+                "path" : "D:/ACAP/FYP/R/Recommender Apps/Recommender Apps2/scraping.R",
+                "state" : 1,
+                "type" : 1
+            },
+            {
+                "editor_line_number" : 78,
+                "editor_state" : 1,
+                "function_name" : "toplevel",
+                "function_steps" : "",
+                "id" : 2,
+                "is_package_breakpoint" : false,
+                "is_pending_debug_completion" : false,
+                "line_number" : 78,
+                "needs_updated_steps" : false,
+                "package_name" : "",
+                "path" : "D:/ACAP/FYP/R/Recommender Apps/Recommender Apps2/scraping3.R",
+                "state" : 1,
+                "type" : 1
+            },
+            {
+                "editor_line_number" : 104,
+                "editor_state" : 1,
+                "function_name" : "toplevel",
+                "function_steps" : "",
+                "id" : 3,
+                "is_package_breakpoint" : false,
+                "is_pending_debug_completion" : false,
+                "line_number" : 104,
+                "needs_updated_steps" : false,
+                "package_name" : "",
+                "path" : "D:/ACAP/FYP/R/Recommender Apps/Recommender Apps2/scraping3.R",
+                "state" : 1,
+                "type" : 1
+            },
+            {
+                "editor_line_number" : 145,
+                "editor_state" : 1,
+                "function_name" : "toplevel",
+                "function_steps" : "",
+                "id" : 4,
+                "is_package_breakpoint" : false,
+                "is_pending_debug_completion" : false,
+                "line_number" : 145,
+                "needs_updated_steps" : false,
+                "package_name" : "",
+                "path" : "D:/ACAP/FYP/R/Recommender Apps/Recommender Apps2/scraping3.R",
+                "state" : 1,
+                "type" : 1
+            },
+            {
+                "editor_line_number" : 180,
+                "editor_state" : 1,
+                "function_name" : "toplevel",
+                "function_steps" : "",
+                "id" : 5,
+                "is_package_breakpoint" : false,
+                "is_pending_debug_completion" : false,
+                "line_number" : 180,
+                "needs_updated_steps" : false,
+                "package_name" : "",
+                "path" : "D:/ACAP/FYP/R/Recommender Apps/Recommender Apps2/scraping3.R",
+                "state" : 1,
+                "type" : 1
+            },
+            {
+                "editor_line_number" : 191,
+                "editor_state" : 1,
+                "function_name" : "toplevel",
+                "function_steps" : "",
+                "id" : 7,
+                "is_package_breakpoint" : false,
+                "is_pending_debug_completion" : false,
+                "line_number" : 191,
+                "needs_updated_steps" : false,
+                "package_name" : "",
+                "path" : "D:/ACAP/FYP/R/Recommender Apps/Recommender Apps2/scraping3.R",
+                "state" : 1,
+                "type" : 1
+            },
+            {
+                "editor_line_number" : 233,
+                "editor_state" : 1,
+                "function_name" : "toplevel",
+                "function_steps" : "",
+                "id" : 8,
+                "is_package_breakpoint" : false,
+                "is_pending_debug_completion" : false,
+                "line_number" : 233,
+                "needs_updated_steps" : false,
+                "package_name" : "",
+                "path" : "D:/ACAP/FYP/R/Recommender Apps/Recommender Apps2/scraping3.R",
+                "state" : 1,
+                "type" : 1
+            }
+        ]
+    }
+}

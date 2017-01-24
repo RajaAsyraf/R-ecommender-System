@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\nlibrary(shiny)\nlibrary(shinythemes)\n\nshinyUI(fluidPage (\n  theme = shinytheme(\"darkly\"),\n  includeCSS(\"styles.css\"),\n  titlePanel( #Title\n    p(\"R-ecommender: An R Content-On-Demand Recommendation System \" , align = \"center\"),\n    \"R-ecommender\"\n  ),\n  navlistPanel(\n    #tabPanel(\"Home\", wellPanel(uiOutput(\"welcome\"))),\n    \n    tabPanel(\"Browse\", wellPanel(h4(\"Browse Movie\"),\n                                 h4(\"Movie Categories\"),\n                                 tabsetPanel(\n                                    tabPanel(\"Action\", br(), dataTableOutput(\"action\")),\n                                    tabPanel(\"Drama\", br(), dataTableOutput(\"drama\")),\n                                    tabPanel(\"Comedy\", br(), dataTableOutput(\"comedy\")),\n                                    tabPanel(\"Horror\", br(), dataTableOutput(\"horror\")),\n                                    tabPanel(\"Romance\", br(), dataTableOutput(\"romance\")),\n                                    tabPanel(\"Family\", br(), dataTableOutput(\"family\")),\n                                    tabPanel(\"Thriller\", br(), dataTableOutput(\"thriller\")),\n                                    tabPanel(\"Sci-Fi\", br(), dataTableOutput(\"sci_fi\")),\n                                    tabPanel(\"Crime\", br(), dataTableOutput(\"crime\")),\n                                    tabPanel(\"Top 200\", br(), dataTableOutput(\"top200\"))\n                                    #tabPanel(\"All\", br(), dataTableOutput(\"all\"))\n                                  )\n                                  )),\n    tabPanel(\"Rating\", wellPanel(selectInput(\"select_movie\", label = h4(\"Select movie:\"), \n                                             choices = as.character(movie_iflix$movie_title[])),\n                                 selectInput(\"select_rating\", label = h4(\"Select your rating (1-5):\"),\n                                             choices = c(1:5)),\n                                 #uiOutput(\"title_selected\"),\n                                 br(),\n                                 submitButton(\"Submit\"),\n                                 uiOutput(\"userdata\")\n                      )),\n    \n    tabPanel(\"Preference\", wellPanel(uiOutput(\"preference\"))),\n    \n    tabPanel(\"Recommended\", wellPanel(h4(\"List of recommended movies based on your preferences.\"),\n                                      p(\"Recommended movies:\"))),\n    \n    tabPanel(\"Statistics\", wellPanel(\"Display plotted graph or chart of the similarity of all movies.\")),\n    tabPanel(img(height = 80, src = \"Rlogo.jpg\"), wellPanel(\"About R\")),\n    tabPanel(img(height = 80, src = \"iflixlogo.png\"), wellPanel(\"About iFlix\")),\n    tabPanel(img(height = 80, src = \"mmulogo.jpg\"), wellPanel(\"About MMU\"))\n    \n    \n  )\n))\n",
+    "created" : 1482110436187.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3390661803",
+    "id" : "7658D3F1",
+    "lastKnownWriteTime" : 1485167853,
+    "last_content_update" : 1485167853819,
+    "path" : "D:/ACAP/FYP/R/Recommender Apps/Recommender Apps4/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

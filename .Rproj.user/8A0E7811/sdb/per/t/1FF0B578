@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1485072968072.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "1FF0B578",
+    "lastKnownWriteTime" : 7020383036134916096,
+    "last_content_update" : 1485072968072,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "BC37C3D7",
+        "caption" : "movie_iflix",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=movie_iflix&cache_key=BC37C3D7",
+        "displayedObservations" : 1340,
+        "environment" : "",
+        "object" : "movie_iflix",
+        "preview" : 0,
+        "totalObservations" : 1340,
+        "variables" : 6
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

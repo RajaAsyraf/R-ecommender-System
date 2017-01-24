@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "fields <- c(\"movieId\", \"userId\", \"rating\")\n\n",
+    "created" : 1485167183456.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "563015472",
+    "id" : "AF547D6F",
+    "lastKnownWriteTime" : 1485167742,
+    "last_content_update" : 1485167742537,
+    "path" : "D:/ACAP/FYP/R/Recommender Apps/Recommender Apps4/user_data.R",
+    "project_path" : "user_data.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

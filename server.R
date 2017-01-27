@@ -66,19 +66,47 @@ shinyServer(function(input, output,session) {
     return(poster)
   })
   
-  #observeEvent(input$submit, {
-  #  saveData(formData())
-  #})
+  #=== display table ===
   
-  #formData <- reactive({
-  #  user_data <- sapply(fields, function(x) input[[x]])
-  #  user_data
-  #})
+  output$userdata <- renderDataTable({
+    colnames(user_rating) <- c("Movie Title", "Rating by user")
+    user_rating
+  }, escape = FALSE, options = list(pageLength = 10))
   
-  output$user_data <- renderText({
-    input$submit
-    #loadData()
+  #/=== display table ===
+  
+  #== get user input ===
+  
+  observeEvent(input$submit, {
+    if (exists("user_rating")) {
+      newrow <<- data.frame(selected_movie = input$select_movie,
+                          selected_rating = input$select_rating)
+      user_rating <<- rbind(user_rating, newrow)
+    } else {
+      #user_rating <<- as.data.frame(data, stringsAsFactors=FALSE)
+    }
+    
+    output$userdata <- renderDataTable({
+      colnames(user_rating) <- c("Movie Title", "Rating by user")
+      user_rating
+    }, escape = FALSE, options = list(pageLength = 10))
   })
+  
+  #=== /get user input ===
+  
+  #--- delete table ===
+  
+  observeEvent(input$clear, {
+    user_rating <<- user_rating[0,]
+    output$userdata <- renderDataTable({
+      colnames(user_rating) <- c("Movie Title", "Rating by user")
+      user_rating
+    }, escape = FALSE, options = list(pageLength = 10))
+  })
+  
+  #=== /delete table ====
+      
+      
   
   #========================= preference =================================
   output$preference <- renderUI({

@@ -10,10 +10,8 @@ shinyUI(fluidPage (
     "R-ecommender"
   ),
   navlistPanel(
-    #tabPanel("Home", wellPanel(uiOutput("welcome"))),
     
-    tabPanel("Browse", wellPanel(h4("Browse Movie"),
-                                 h4("Movie Categories"),
+    tabPanel("Browse", wellPanel(h4("Movie Categories"),
                                  tabsetPanel(
                                     tabPanel("Action", br(), dataTableOutput("action")),
                                     tabPanel("Drama", br(), dataTableOutput("drama")),
@@ -28,15 +26,19 @@ shinyUI(fluidPage (
                                     #tabPanel("All", br(), dataTableOutput("all"))
                                   )
                                   )),
-    tabPanel("Rating", wellPanel(selectInput("select_movie", label = h4("Select movie:"), 
+    tabPanel("Rating", wellPanel(div(selectInput("select_movie", label = h4("Select movie:"), 
                                              choices = as.character(movie_iflix$movie_title[])),
                                  selectInput("select_rating", label = h4("Select your rating (1-5):"),
-                                             choices = c(1:5)),
-                                 #uiOutput("title_selected"),
-                                 br(),
-                                 submitButton("Submit"),
-                                 uiOutput("userdata")
-                      )),
+                                             choices = c(1:5)), style = 'width:50%;'),
+                                 actionButton("submit", "Submit")
+                      ),
+                      wellPanel(
+                        h4("Your rating:"),
+                        dataTableOutput("userdata"),
+                        br(),
+                        actionButton("clear", "Clear Table")
+                      )
+            ),
     
     tabPanel("Preference", wellPanel(uiOutput("preference"))),
     
@@ -44,9 +46,9 @@ shinyUI(fluidPage (
                                       p("Recommended movies:"))),
     
     tabPanel("Statistics", wellPanel("Display plotted graph or chart of the similarity of all movies.")),
-    tabPanel(img(height = 80, src = "Rlogo.jpg"), wellPanel("About R")),
-    tabPanel(img(height = 80, src = "iflixlogo.png"), wellPanel("About iFlix")),
-    tabPanel(img(height = 80, src = "mmulogo.jpg"), wellPanel("About MMU"))
+    tabPanel(img(height = 50, src = "iflixlogo.png"), wellPanel("About iFlix")),
+    tabPanel(img(height = 50, src = "Rlogo.png"), wellPanel("About R")),
+    tabPanel(img(height = 50, src = "mmulogo.png"), wellPanel("About MMU"))
     
     
   )

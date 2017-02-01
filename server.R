@@ -1,51 +1,14 @@
 library(shiny)
 library(shinydashboard)
+source("content-based-recommendation-engine.R")
 
-displayViewBtn <- function(val) {
+displayViewBtn <<- function(val) {
   paste0('<a href="http://www.imdb.com/title/',val,'" target="_blank" class="btn btn-primary">IMDB Info</a>')
 }
 
-displayPoster <- function(val) {
+displayPoster <<- function(val) {
   paste0('<img src="',val,'" alt="Image from IMDb is not available." height="150" width="100">')
 }
-
-displayPoster2 <- function(val) {
-  paste0('<img src="',val,'" alt="Image from IMDb is not available." height="250" width="180">')
-}
-
-displayStar <- function(val) {
-  sprintf(paste('<span class="rating">
-                  <input type="radio" class="rating-input"
-                  id="rating-input-1-5-',val,'" name="rating-input-',val,'">
-                  <label for="rating-input-1-5-',val,'" class="rating-star"></label>
-      
-                  <input type="radio" class="rating-input"
-                  id="rating-input-1-4-',val,'" name="rating-input-',val,'">
-                  <label for="rating-input-1-4-',val,'" class="rating-star"></label>
-      
-                  <input type="radio" class="rating-input"
-                  id="rating-input-1-3-',val,'" name="rating-input-',val,'">
-                  <label for="rating-input-1-3-',val,'" class="rating-star"></label>
-      
-                  <input type="radio" class="rating-input"
-                  id="rating-input-1-2-',val,'" name="rating-input-',val,'">
-                  <label for="rating-input-1-2-',val,'" class="rating-star"></label>
-      
-                  <input type="radio" class="rating-input"
-                  id="rating-input-1-1-',val,'" name="rating-input-',val,'">
-                  <label for="rating-input-1-1-',val,'" class="rating-star"></label>
-      
-                </span>'))
-}
-
-displayStar2 <- function(){
-  radioButtons("star", "Star", c("1star" = "1", "2star"="2"))
-}
-
-displayWatchedBtn <- function(val) {
-  sprintf('<a href="" target="_blank" class="btn btn-primary">Watched</a>',val)
-}
-
 
 shinyServer(function(input, output,session) {
   
@@ -185,5 +148,13 @@ shinyServer(function(input, output,session) {
     movie_iflixview <- movie_iflixview[,c("Poster","Title","Info")]
     return(movie_iflixview)
   }, escape = FALSE, options = list(pageLength = 10))
+  
+  #============================= recommended =================
+  observeEvent(input$generate, {
+    output$recommended_output <- renderDataTable({
+      movie_recommendation()
+      #recommended_movies
+    }, escape = FALSE, options = list(pageLength = 10))
+  })
   
 })

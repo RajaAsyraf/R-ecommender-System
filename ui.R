@@ -41,10 +41,14 @@ shinyUI(fluidPage (
                       )
             ),
     
-    tabPanel("Preference", wellPanel(uiOutput("preference"))),
-    
     tabPanel("Recommended", wellPanel(h4("List of recommended movies based on your preferences."),
-                                      p("Recommended movies:"))),
+                                      actionButton("generate","Generate")),
+                            wellPanel(
+                              p("Recommended movies:"),
+                              dataTableOutput("recommended_output")
+                            )
+             ),
+    tabPanel("Preference", wellPanel(uiOutput("preference"))),
     
     tabPanel("Statistics", wellPanel("Display plotted graph or chart of the similarity of all movies.")),
     tabPanel(img(height = 50, src = "iflixlogo.png"), wellPanel(a(href="http://www.iflix.com", target="_blank", img(height = 60, src = "iflixlogo.png", style="display: block; margin-left: auto; margin-right: auto;")),

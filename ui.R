@@ -38,8 +38,10 @@ shinyUI(fluidPage (
               ),
              wellPanel(
               h4("B. Go to Watched Movies menu tab.", img(height = 40, src = "https://scontent-kul1-1.xx.fbcdn.net/v/t1.0-9/16388124_1579312438763099_4714136062847149940_n.jpg?oh=d7aa4c558dc753a8207891bd01ed7907&oe=593F8FC7")),
-              img(height = 200, src = "https://scontent-kul1-1.xx.fbcdn.net/v/t1.0-9/16387327_1579315782096098_5337220546191872000_n.jpg?oh=8dda1008ff13c6f4cdb4dbaa67e7ff13&oe=5913F6F6"),
-              p("For the second option to get a list of recommended movies, you can choose 3 movies you have seen and click 'Submit'")
+              p("For the second option to get a list of recommended movies, you can choose 3 movies you have seen."),
+              img(height = 200, src = "https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/16473498_1581824251845251_7108441517536010994_n.jpg?oh=e42ad9601a301b363d735ccb2258d231&oe=59092AAB"),
+              p("Click 'Generate' button to get a list of recommended movies based on 3 movies you have watched before."),
+              img(height = 400, src = "https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/16473694_1581824261845250_116579843323449088_n.jpg?oh=d7150afe490201a2c118dabd06a53dc5&oe=594226D5")
              )
     ),
     
@@ -83,24 +85,20 @@ shinyUI(fluidPage (
                       )
             ),
     
-    tabPanel("Watched Movies", wellPanel(tabsetPanel(
-                                          tabPanel("Watched Movies", br(),
-                                            div(selectInput("select_movie_watced_1", label = h4("Select 3 movies you have seen:"), 
-                                                            choices = as.character(movie_iflix$movie_title[])),
-                                                selectInput("select_movie_watced_2", label = NA,
-                                                            choices = as.character(movie_iflix$movie_title[])),
-                                                selectInput("select_movie_watced_3", label = NA,
-                                                            choices = as.character(movie_iflix$movie_title[])),
-                                                style = 'width:50%;'),
-                                            actionButton("submit_watched_movies", "Submit")
-                                          ),
-                                          tabPanel("Generate Recommended", br(),
-                                                   h4("List of recommended movies based on your preferences."),
-                                                   actionButton("generate","Generate"),br(),
-                                                   p("Recommended movies:"),
-                                                   dataTableOutput("recommended_output_watched")
-                                          )
-                                        )
+    tabPanel("Watched Movies", wellPanel(
+                                          div(selectInput("select_movie_watched_1", label = h4("Select 3 movies you have seen:"), 
+                                                          choices = as.character(movie_iflix$movie_title[])),
+                                              selectInput("select_movie_watched_2", label = NA,
+                                                          choices = as.character(movie_iflix$movie_title[])),
+                                              selectInput("select_movie_watched_3", label = NA,
+                                                          choices = as.character(movie_iflix$movie_title[])),
+                                              style = 'width:50%;'),
+                                          actionButton("submit_watched_movies", "Generate"),
+                                          h4("List of recommended movies based on your preferences."),br(),
+                                          p("Recommended movies:"),
+                                          dataTableOutput("recommended_output_watched")
+                                          
+                                        
                               )
     ),
     

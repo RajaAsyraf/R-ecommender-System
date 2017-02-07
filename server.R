@@ -2,6 +2,7 @@ library(shiny)
 library(shinydashboard)
 library(rsconnect)
 source("content-based-recommendation-engine.R")
+source("watched-recommender-engine.R")
 require(reshape2)
 
 rsconnect::setAccountInfo(name='fypasyraf', token='2191A487EA2B5541CE0A5415739F7F39', secret='GiRzFkUaMpa/NObgTlygxnMcuUIsvJq8i5yyyiYk')
@@ -190,17 +191,14 @@ shinyServer(function(input, output,session) {
   observeEvent(input$generate, {
     output$recommended_output <- renderDataTable({
       movie_recommendation()
-      #recommended_movies
-    }, escape = FALSE, options = list(pageLength = 10))
+    }, escape = FALSE, options = list(pageLength = 10)) 
   })
   
-  #=========================== statistics ==================
-  output$preference <- reactivePlot(function() {
-    
-    hist(sim_results$V1,
-         #breaks = as.numeric(input$n_breaks),
-         xlab = "Frequency of all movies similarity score",
-         main = "Similarity Score for all movies")
+  observeEvent(input$submit_watched_movies, {
+    output$recommended_output_watched <- renderDataTable({
+      watched_recommender(input$select_movie_watched_1,input$select_movie_watched_2,input$select_movie_watched_3)
+      #movie_recommendation()
+    }, escape = FALSE, options = list(pageLength = 10))
   })
   
 })

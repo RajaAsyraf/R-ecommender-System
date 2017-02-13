@@ -2,11 +2,7 @@ library(data.table)
 library(readr)
 library(proxy)
 
-#movies <- read_csv("D:/ACAP/FYP/R/Recommender Apps/Recommender Engine/ml-latest-small/ml-latest-small/movies.csv")
-#View(movies)
-#ratings <- read_csv("D:/ACAP/FYP/R/Recommender Apps/Recommender Engine/ml-latest-small/ml-latest-small/ratings.csv")
-#View(ratings)
-#install.packages('rsconnect')
+
 
 movie_recommendation <- function(){
   
@@ -19,13 +15,6 @@ movie_recommendation <- function(){
   genres2$genre2 <- movies$genre2
   genres2$genre3 <- movies$genre3
   colnames(genres2) <- c(1:3)
-  
-  #get unique genres from all movies
-  #unique_genre1 <- NULL
-  #all_genre <- c(genres2$`1`,genres2$`2`,genres2$`3`)
-  #unique_genre1 <- as.data.frame(all_genre, stringsAsFactors=FALSE)
-  #unique_genre <- unique(unique_genre1)
-  #rownames(unique_genre) <- NULL
   
   #produce genre matrix
   genre_list <- c("Action","Drama","Animation","Game-Show","Crime","Documentary","Fantasy","Horror","Biography","Adventure","Short","Comedy","Family","Music","Romance","Thriller","Mystery","Musical","Talk-Show","Sci-Fi","Reality-TV","History","Western","Sport","War","Film-Noir")
@@ -80,19 +69,8 @@ movie_recommendation <- function(){
     allmovie_rating$selected_rating[got_rating] <- ratings$selected_rating[i]
   }
   
-
-  #convert ratings into binary
-  #binaryratings <- ratings
   binaryratings <- allmovie_rating
-  #binaryratings[, 3] <- as.numeric(as.character( binaryratings[, 3] ))
-  #for (i in 1:nrow(binaryratings)){
-  #  if (binaryratings[i,3] > 3){
-  #    binaryratings[i,3] <- 1
-  #  }
-  #  else{
-  #    binaryratings[i,3] <- -1
-  #  }
-  #}
+ 
   
   binaryratings2 <- dcast(binaryratings, movieId~userId, value.var = "selected_rating", na.rm=FALSE)
   for (i in 1:ncol(binaryratings2)){
@@ -118,7 +96,6 @@ movie_recommendation <- function(){
   for (c in 1:ncol(binaryratings2)){
     for (i in 1:ncol(genre_matrix3)){
       result[i,c] <- suppressWarnings(sum((genre_matrix3[,i]) * (binaryratings2[,c])))
-      #result[i,c] <- sum((genre_matrix3[,i]) * (binaryratings2[,c]))
     }
   }
   

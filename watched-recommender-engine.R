@@ -4,9 +4,6 @@ library(proxy)
 
 watched_recommender <- function(input1,input2,input3){
   movies <- movie_iflix
-  #row_num <- which(movies2[,2] == "Thor")
-  #row_num2 <- which(movies2[,2] == "Rush Hour")
-  #row_num3 <- which(movies2[,2] == "The Tuxedo")
   
   user_rating2 <<- user_rating[0,]
   newrow <<- data.frame(selected_movie = input1,
@@ -15,13 +12,7 @@ watched_recommender <- function(input1,input2,input3){
                         selected_rating = 4)
   newrow3 <<- data.frame(selected_movie = input3,
                         selected_rating = 3)
-  
-  #newrow <<- data.frame(selected_movie = "Thor",
-  #                      selected_rating = 5)
-  #newrow2 <<- data.frame(selected_movie = "Rush Hour",
-  #                       selected_rating = 4)
-  #newrow3 <<- data.frame(selected_movie = "The Tuxedo",
-  #                       selected_rating = 3)
+
   
   user_rating2 <<- rbind(user_rating2, newrow)
   user_rating2 <<- rbind(user_rating2, newrow2)
@@ -34,13 +25,7 @@ watched_recommender <- function(input1,input2,input3){
   genres2$genre2 <- movies$genre2
   genres2$genre3 <- movies$genre3
   colnames(genres2) <- c(1:3)
-  
-  #get unique genres from all movies
-  #unique_genre1 <- NULL
-  #all_genre <- c(genres2$`1`,genres2$`2`,genres2$`3`)
-  #unique_genre1 <- as.data.frame(all_genre, stringsAsFactors=FALSE)
-  #unique_genre <- unique(unique_genre1)
-  #rownames(unique_genre) <- NULL
+
   
   #produce genre matrix
   genre_list <- c("Action","Drama","Animation","Game-Show","Crime","Documentary","Fantasy","Horror","Biography","Adventure","Short","Comedy","Family","Music","Romance","Thriller","Mystery","Musical","Talk-Show","Sci-Fi","Reality-TV","History","Western","Sport","War","Film-Noir")
@@ -95,19 +80,8 @@ watched_recommender <- function(input1,input2,input3){
     allmovie_rating$selected_rating[got_rating] <- ratings$selected_rating[i]
   }
   
-  
-  #convert ratings into binary
-  #binaryratings <- ratings
   binaryratings <- allmovie_rating
-  #binaryratings[, 3] <- as.numeric(as.character( binaryratings[, 3] ))
-  #for (i in 1:nrow(binaryratings)){
-  #  if (binaryratings[i,3] > 3){
-  #    binaryratings[i,3] <- 1
-  #  }
-  #  else{
-  #    binaryratings[i,3] <- -1
-  #  }
-  #}
+ 
   
   binaryratings2 <- dcast(binaryratings, movieId~userId, value.var = "selected_rating", na.rm=FALSE)
   for (i in 1:ncol(binaryratings2)){

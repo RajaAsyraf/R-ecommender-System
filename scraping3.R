@@ -884,5 +884,8 @@ movie_iflix <- rbind(movie_iflix,movie_scifi)
 movie_iflix <- rbind(movie_iflix,movie_thriller)
 movie_iflix <- rbind(movie_iflix,movie_top200)
 
+movie_iflix$movieId <- c(1:nrow(movie_iflix))
+movie_iflix <- movie_iflix[,c("movieId", "movie_title", "genre1", "genre2", "genre3", "imdbID", "poster")]
+
 movie_iflixview <-  as.data.frame(movie_iflix$movie_title, stringsAsFactors=FALSE)
 colnames(movie_iflixview) <- "Title"

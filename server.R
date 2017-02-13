@@ -5,7 +5,7 @@ source("content-based-recommendation-engine.R")
 source("watched-recommender-engine.R")
 require(reshape2)
 
-rsconnect::setAccountInfo(name='fypasyraf', token='2191A487EA2B5541CE0A5415739F7F39', secret='GiRzFkUaMpa/NObgTlygxnMcuUIsvJq8i5yyyiYk')
+rsconnect::setAccountInfo(name='fypasyraf', token='399BA17956BE15119198E4BCA48054A2', secret='ImN3kbzezjddZQa913wF8AIrIcxDGdVKPJYSC6xF')
 
 displayViewBtn <<- function(val) {
   paste0('<a href="http://www.imdb.com/title/',val,'" target="_blank" class="btn btn-primary">IMDB Info</a>')
